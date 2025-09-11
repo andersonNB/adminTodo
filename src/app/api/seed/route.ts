@@ -11,7 +11,7 @@ export async function GET(request: Request) {
 				complete: true,
 			},
 			{
-				description: "Piedra del poder",
+				description: "Piedra del poderr",
 			},
 			{
 				description: "Piedra del tiempo",
