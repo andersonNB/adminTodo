@@ -57,7 +57,7 @@ export async function PUT(request: Request, segments: Segments) {
 			where: {id},
 			data: {complete, description},
 		});
-
+		//
 		return NextResponse.json(
 			{payload: updatedTodo, status: 200},
 			{status: 200}
