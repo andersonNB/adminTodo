@@ -25,8 +25,7 @@ export default function DashboardLayout({
 					{/* TODO: dashboard/page.tsx  */}
 					{/* Este contenido va dentro de page.tsx */}
 					{children}
-					{/* TODO: fin del dashboard/page.tsx  */}
-
+					{/* TODO: fin del dashboard/page.tsx  */}.
 					{/* TODO: Fin del contenido en el Layout.tsx */}
 				</div>
 			</div>
