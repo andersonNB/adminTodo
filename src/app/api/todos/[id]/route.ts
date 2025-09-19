@@ -3,13 +3,13 @@ import {NextResponse} from "next/server";
 import * as yup from "yup";
 
 interface Segments {
-	params: {
+	params: Promise<{
 		id: string;
-	};
+	}>;
 }
 
 export async function GET(request: Request, segments: Segments) {
-	const {id} = segments.params;
+	const {id} = await segments.params;
 
 	try {
 		const todoById = await prisma.todo.findUniqueOrThrow({
@@ -35,7 +35,7 @@ const putSchema = yup.object({
 });
 
 export async function PUT(request: Request, segments: Segments) {
-	const {id} = segments.params;
+	const {id} = await segments.params;
 
 	try {
 		const todoById = await prisma.todo.findUniqueOrThrow({

@@ -1,7 +1,27 @@
 import Image from "next/image";
-import React from "react";
-import {CiBookmarkCheck, CiLogout} from "react-icons/ci";
+import {CiLogout} from "react-icons/ci";
 import logo from "../../../assets/Instatus_light.svg";
+import SidebarItem from "../SidebarItem/SidebarItem";
+import {IoCalendar, IoCheckboxOutline, IoListOutline} from "react-icons/io5";
+import {SidebarItemProps} from "@/app/interfaces/Sidebar";
+
+const menuItems: SidebarItemProps[] = [
+	{
+		icon: <IoCalendar />,
+		title: "Dashboard",
+		path: "/dashboard",
+	},
+	{
+		icon: <IoCheckboxOutline />,
+		title: "Rest TODOS",
+		path: "/dashboard/rest-todos",
+	},
+	{
+		icon: <IoListOutline />,
+		title: "Server Actions",
+		path: "/dashboard/server-todos",
+	},
+];
 
 const Sidebar = () => {
 	return (
@@ -31,26 +51,9 @@ const Sidebar = () => {
 				</div>
 
 				<ul className="space-y-2 tracking-wide mt-8">
-					{/* TODO: src/components <SidebarItem /> */}
-					{/* Active className: text-white bg-gradient-to-r from-sky-600 to-cyan-400 */}
-					<li>
-						<a
-							href="#"
-							className="relative px-4 py-3 flex items-center space-x-4 rounded-xl text-white bg-gradient-to-r from-sky-600 to-cyan-400"
-						>
-							<CiBookmarkCheck size={30} />
-							<span className="-mr-1 font-medium">Dashboard</span>
-						</a>
-					</li>
-					<li>
-						<a
-							href="#"
-							className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group"
-						>
-							<CiBookmarkCheck size={30} />
-							<span className="group-hover:text-gray-700">Categories</span>
-						</a>
-					</li>
+					{menuItems.map((item) => (
+						<SidebarItem {...item} key={item.path} />
+					))}
 				</ul>
 			</div>
 
