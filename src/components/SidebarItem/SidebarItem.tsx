@@ -10,7 +10,8 @@ const SidebarItem = ({icon, path, title}: SidebarItemProps) => {
 		<li>
 			<Link
 				href={path}
-				className={`relative px-4 py-3 flex items-center space-x-4 rounded-xl text-white                   
+				className={`relative px-4 py-3 flex items-center space-x-4 rounded-xl text-white
+                                       
                     ${
 											path === pathName
 												? "bg-gradient-to-r from-sky-600 to-cyan-400"
