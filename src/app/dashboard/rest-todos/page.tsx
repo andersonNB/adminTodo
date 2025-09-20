@@ -9,7 +9,7 @@ const RestTodos = () => {
 				.then((res) => console.log(res));
 		}
 
-		//console.log(todos());
+		console.log(todos());
 	}, []);
 
 	return <div>RestTodos</div>;
