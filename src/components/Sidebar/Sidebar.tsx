@@ -38,7 +38,7 @@ const Sidebar = () => {
 				<div className="mt-8 text-center">
 					{/* Next/Image */}
 					<Image
-						src="https://tailus.io/sources/blocks/stats-cards/preview/images/second_user.webp"
+						src={logo}
 						alt=""
 						width={40}
 						height={40}
