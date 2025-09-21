@@ -2,9 +2,11 @@
 import {SidebarItemProps} from "@/app/interfaces/Sidebar";
 import Link from "next/link";
 import {usePathname} from "next/navigation";
+import {useState} from "react";
 
 const SidebarItem = ({icon, path, title}: SidebarItemProps) => {
 	const pathName = usePathname();
+	const [first, setfirst] = useState(0);
 
 	return (
 		<li>
@@ -16,12 +18,13 @@ const SidebarItem = ({icon, path, title}: SidebarItemProps) => {
 											path === pathName
 												? "bg-gradient-to-r from-sky-600 to-cyan-400"
 												: "bg-gradient-to-r from-gray-600 to-gray-400"
-										}
-                    `}
+										}`}
 			>
 				{icon}
 				<span className="-mr-1 font-medium">{title}</span>
 			</Link>
+
+			<div onClick={() => setfirst(first + 1)}>{first} </div>
 		</li>
 	);
 };
