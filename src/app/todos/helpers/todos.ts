@@ -47,6 +47,13 @@ export const createTodo = async (description: string): Promise<Todo> => {
 	return todo;
 };
 
+/**
+ * Elimina todos los Todos que estén marcados como completados.
+ *
+ * @async
+ * @function deleteAllCompletedTodos
+ * @returns {Promise<{count: number}>} Promesa que resuelve con un objeto que indica cuántos Todos fueron eliminados.
+ */
 export const deleteAllCompletedTodos = async () => {
 	const todo = await fetch("/api/todos", {
 		method: "DELETE",

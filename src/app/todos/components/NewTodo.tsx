@@ -3,12 +3,18 @@
 import {IoReloadOutline, IoTrashOutline} from "react-icons/io5";
 import {createTodo, deleteAllCompletedTodos} from "../helpers/todos";
 import {useRouter} from "next/navigation";
+import {resetTodos} from "../helpers/seed";
 
 export const NewTodo = () => {
 	const router = useRouter();
 
 	const deleteCompleted = async () => {
 		await deleteAllCompletedTodos();
+		router.refresh();
+	};
+
+	const handleReset = async () => {
+		await resetTodos();
 		router.refresh();
 	};
 
@@ -28,7 +34,7 @@ export const NewTodo = () => {
 	};
 
 	return (
-		<form className="flex w-full" onSubmit={onSubmit}>
+		<form className="flex w-full items-center" onSubmit={onSubmit}>
 			<input
 				type="text"
 				name="description"
@@ -45,17 +51,19 @@ export const NewTodo = () => {
 
 			<span className="flex flex-1"></span>
 
-			<div>
+			<button
+				className="flex items-center justify-center gap-1 rounded-full w-[34px] h-[34px] bg-gray-400  text-white hover:bg-gray-700 transition-all"
+				onClick={handleReset}
+			>
 				<IoReloadOutline />
-			</div>
+			</button>
 
 			<button
 				type="button"
-				className="flex items-center justify-center gap-1 rounded ml-2 bg-red-400 p-2 text-white hover:bg-red-700 transition-all"
+				className="flex items-center justify-center gap-1 rounded-full w-[34px] h-[34px] ml-2 bg-red-400 p-2 text-white hover:bg-red-700 transition-all"
 				onClick={() => deleteCompleted()}
 			>
 				<IoTrashOutline />
-				Delete
 			</button>
 		</form>
 	);
