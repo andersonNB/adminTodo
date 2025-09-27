@@ -1,22 +1,22 @@
 "use client";
-import React from "react";
 import {Todo} from "@/generated/prisma";
 import {TodoItem} from "./TodoItem";
-import {updateTodo} from "../helpers/todos";
-import {useRouter} from "next/navigation";
+import {toggleTodo} from "../actions/todo-actions";
 
 interface Props {
 	todos?: Todo[];
 }
 
 export const TodosGrid = ({todos = []}: Props) => {
-	const router = useRouter();
+	//const router = useRouter();
 
-	const toggleTodo = async (id: string, complete: boolean) => {
+	// vamos a utilizar un server actions para actualizar el todo
+	/*const toggleTodo = async (id: string, complete: boolean) => {
 		await updateTodo(id, complete);
 
 		router.refresh();
 	};
+	*/
 
 	return (
 		<>

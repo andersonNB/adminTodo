@@ -1,16 +1,17 @@
 "use client";
 
 import {IoReloadOutline, IoTrashOutline} from "react-icons/io5";
-import {createTodo, deleteAllCompletedTodos} from "../helpers/todos";
 import {useRouter} from "next/navigation";
 import {resetTodos} from "../helpers/seed";
+import {addTodo, deleteCompletedServerActions} from "../actions/todo-actions";
 
 export const NewTodo = () => {
 	const router = useRouter();
 
 	const deleteCompleted = async () => {
-		await deleteAllCompletedTodos();
-		router.refresh();
+		//await deleteAllCompletedTodos();
+		await deleteCompletedServerActions();
+		//router.refresh();
 	};
 
 	const handleReset = async () => {
@@ -28,8 +29,8 @@ export const NewTodo = () => {
 		if (typeof description === "string") {
 			if (description.trim() === "") return;
 
-			await createTodo(description);
-			router.refresh();
+			await addTodo(description);
+			//router.refresh();
 		}
 	};
 
@@ -61,7 +62,7 @@ export const NewTodo = () => {
 			<button
 				type="button"
 				className="flex items-center justify-center gap-1 rounded-full w-[34px] h-[34px] ml-2 bg-red-400 p-2 text-white hover:bg-red-700 transition-all"
-				onClick={() => deleteCompleted()}
+				onClick={deleteCompleted}
 			>
 				<IoTrashOutline />
 			</button>
