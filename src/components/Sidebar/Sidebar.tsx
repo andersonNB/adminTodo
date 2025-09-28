@@ -4,6 +4,7 @@ import logo from "../../../assets/Instatus_light.svg";
 import SidebarItem from "../SidebarItem/SidebarItem";
 import {IoCalendar, IoCheckboxOutline, IoListOutline} from "react-icons/io5";
 import {SidebarItemProps} from "@/app/interfaces/Sidebar";
+import {LiaCookieSolid} from "react-icons/lia";
 
 const menuItems: SidebarItemProps[] = [
 	{
@@ -20,6 +21,11 @@ const menuItems: SidebarItemProps[] = [
 		icon: <IoListOutline />,
 		title: "Server Actions",
 		path: "/dashboard/server-todos",
+	},
+	{
+		icon: <LiaCookieSolid />,
+		title: "Cookies",
+		path: "/dashboard/cookies",
 	},
 ];
 

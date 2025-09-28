@@ -1,6 +1,7 @@
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
+//Con force-dynamic y revalidate siempre tendremos los datos actualizados pero acosta del perfomarce de la aplicación
 import React from "react";
 import prisma from "@/lib/prisma";
 import {NewTodo} from "@/app/todos/components/NewTodo";

@@ -21,12 +21,8 @@ export default function DashboardLayout({
 				{/* TODO: Fin del <TopMenu /> */}
 
 				{/* TODO: Contenido en el Layout.tsx */}
-				<div className="px-6 pt-6">
-					{/* TODO: dashboard/page.tsx  */}
-					{/* Este contenido va dentro de page.tsx */}
+				<div className="px-6 pt-6 bg-white p-2 m-2 rounded text-black">
 					{children}
-					{/* TODO: fin del dashboard/page.tsx  */}
-					{/* TODO: Fin del contenido en el Layout.tsx */}
 				</div>
 			</div>
 		</>
