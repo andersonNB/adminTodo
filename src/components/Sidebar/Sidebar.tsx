@@ -5,6 +5,7 @@ import SidebarItem from "../SidebarItem/SidebarItem";
 import {IoCalendar, IoCheckboxOutline, IoListOutline} from "react-icons/io5";
 import {SidebarItemProps} from "@/app/interfaces/Sidebar";
 import {LiaCookieSolid} from "react-icons/lia";
+import {FaProductHunt} from "react-icons/fa";
 
 const menuItems: SidebarItemProps[] = [
 	{
@@ -26,6 +27,11 @@ const menuItems: SidebarItemProps[] = [
 		icon: <LiaCookieSolid />,
 		title: "Cookies",
 		path: "/dashboard/cookies",
+	},
+	{
+		icon: <FaProductHunt />,
+		title: "Products",
+		path: "/dashboard/products",
 	},
 ];
 
