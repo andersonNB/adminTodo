@@ -26,8 +26,24 @@ export const removeProductFromCart = (id: string) => {
 	const cookiesCart = getCookiecart();
 
 	if (cookiesCart[id]) {
-		cookiesCart[id] = 0;
-		//delete cookiesCart[id]
+		//cookiesCart[id] = 0; si lo dejamos así no se elimina el producto del carrito queda con cantidad 0
+		delete cookiesCart[id]; // de esta forma se elimina el producto del carrito
+	}
+
+	setCookie("cart", JSON.stringify(cookiesCart));
+};
+
+export const removeSingleItemFromCart = (id: string) => {
+	const cookiesCart = getCookiecart();
+
+	if (!cookiesCart[id]) return;
+
+	if (cookiesCart[id]) {
+		cookiesCart[id] = cookiesCart[id] - 1;
+	}
+
+	if (cookiesCart[id] === 0) {
+		delete cookiesCart[id];
 	}
 
 	setCookie("cart", JSON.stringify(cookiesCart));
