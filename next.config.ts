@@ -1,4 +1,5 @@
 import type {NextConfig} from "next";
+import {hostname} from "os";
 
 /*const nextConfig: NextConfig = {
 
@@ -16,6 +17,12 @@ const nextConfig = {
 			{
 				protocol: "https",
 				hostname: "tailus.io",
+				pathname: "/**",
+			},
+			{
+				protocol: "https",
+
+				hostname: "avatars.githubusercontent.com",
 				pathname: "/**",
 			},
 		],
