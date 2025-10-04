@@ -1,7 +1,6 @@
 import Image from "next/image";
-import {CiLogout} from "react-icons/ci";
 import logo from "../../../assets/Instatus_light.svg";
-import SidebarItem from "../SidebarItem/SidebarItem";
+import SidebarItem from "./SidebarItem";
 import {
 	IoCalendar,
 	IoCheckboxOutline,
@@ -13,6 +12,7 @@ import {LiaCookieSolid} from "react-icons/lia";
 import {FaProductHunt} from "react-icons/fa";
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/app/api/auth/[...nextauth]/route";
+import LogoutButton from "./LogoutButton";
 
 const menuItems: SidebarItemProps[] = [
 	{
@@ -51,8 +51,6 @@ const Sidebar = async () => {
 	const session = await getServerSession(authOptions);
 	const {user} = session ?? {};
 
-	console.log(user);
-
 	return (
 		<aside className="ml-[-100%] fixed z-10 top-0 pb-3 px-6 w-full flex flex-col justify-between h-screen border-r bg-white transition duration-300 md:w-4/12 lg:ml-0 lg:w-[25%] xl:w-[20%] 2xl:w-[15%]">
 			<div>
@@ -85,7 +83,7 @@ const Sidebar = async () => {
 					<span className="text-gray-400 lg:block">Admin</span>
 				</div>
 
-				<div className=" max-h-[70%]  overflow-hidden overflow-y-auto">
+				<div className=" max-h-[40%]  overflow-hidden overflow-y-auto">
 					<ul className="w-full space-y-2 tracking-wide mt-8">
 						{menuItems.map((item) => (
 							<SidebarItem {...item} key={item.path} />
@@ -95,10 +93,7 @@ const Sidebar = async () => {
 			</div>
 
 			<div className="px-6 -mx-6 pt-4 flex justify-between items-center border-t">
-				<button className="px-4 py-3 flex items-center space-x-4 rounded-md text-gray-600 group">
-					<CiLogout />
-					<span className="group-hover:text-gray-700">Logout</span>
-				</button>
+				<LogoutButton />
 			</div>
 		</aside>
 	);
