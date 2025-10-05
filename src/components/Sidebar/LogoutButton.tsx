@@ -25,7 +25,7 @@ const LogoutButton = () => {
 			<span className="group-hover:text-gray-700">Ingresar</span>
 		</button>;
 	}
-
+	console.log("no comment");
 	return (
 		<button
 			onClick={() => signOut()}
