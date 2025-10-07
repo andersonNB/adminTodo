@@ -22,3 +22,8 @@ npx prisma init
 npx prisma migrate dev //esto crea los modelos en la base de datos, es decir nuestras tablas
 npx prisma generate
 ```
+
+```
+## Borrar datos en !CUIDADO"
+npx prisma migrate reset
+```
