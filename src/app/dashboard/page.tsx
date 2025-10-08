@@ -7,6 +7,8 @@ import {authOptions} from "../api/auth/[...nextauth]/route";
 const DashboardPages = async () => {
 	const session = await getServerSession(authOptions);
 
+	const {id, email, image, name, roles} = session?.user ?? {};
+
 	return (
 		<div className="grid gap-6  grid-cols-1 sm:grid-cols-2 ">
 			<WidgetItem title="Usuario conectado S-Side">
@@ -14,9 +16,11 @@ const DashboardPages = async () => {
 					<IoHammerOutline />
 
 					<div className="flex flex-col w-full">
-						<span>{session?.user?.name ?? "Cargando..."}</span>
-						<span>{session?.user?.image ?? "Cargando..."}</span>
-						<span>{session?.user?.email ?? "Cargando..."}</span>
+						<span>{id ?? "Cargando..."}</span>
+						<span>{name ?? "Cargando..."}</span>
+						<span>{image ?? "Cargando..."}</span>
+						<span>{email ?? "Cargando..."}</span>
+						<span>{roles ?? "Cargando..."}</span>
 					</div>
 				</div>
 			</WidgetItem>
