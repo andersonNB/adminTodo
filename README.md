@@ -24,6 +24,6 @@ npx prisma generate
 ```
 
 ```
-## Borrar datos en !CUIDADO"
+## Borrar datos en !!!!!!!CUIDADO!!!!!!!"
 npx prisma migrate reset
 ```

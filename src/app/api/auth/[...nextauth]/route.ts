@@ -18,6 +18,23 @@ export const authOptions: NextAuthOptions = {
 		}),
 	],
 	//debug: true,
+	session: {
+		strategy: "jwt",
+	},
+	callbacks: {
+		async signIn({user, account, profile, email, credentials}) {
+			console.log("user: ", user);
+			return false;
+		},
+
+		async jwt({token, user, account, profile}) {
+			return token;
+		},
+
+		async session({session, token, user}) {
+			return session;
+		},
+	},
 };
 
 const handler = NextAuth(authOptions);
