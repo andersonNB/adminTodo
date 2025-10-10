@@ -26,7 +26,6 @@ export const authOptions: NextAuthOptions = {
 			},
 
 			async authorize(credentials, req) {
-				console.log({credentials, req});
 				const user = await signInEmailPassword(
 					credentials?.email ?? "no email in credentials",
 					credentials?.password ?? ""
