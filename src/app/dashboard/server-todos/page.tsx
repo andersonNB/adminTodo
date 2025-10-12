@@ -6,6 +6,8 @@ import React from "react";
 import prisma from "@/lib/prisma";
 import {NewTodo} from "@/app/todos/components/NewTodo";
 import {TodosGrid} from "@/app/todos";
+import {getServerSession} from "next-auth";
+import {authOptions} from "@/app/api/auth/[...nextauth]/route";
 
 export const metadata = {
 	title: "Server actions",
@@ -13,6 +15,8 @@ export const metadata = {
 };
 
 const ServerTodosPage = async () => {
+	//sesión del lado del servidor
+	const session = await getServerSession(authOptions);
 	const todos = await prisma.todo.findMany({orderBy: {description: "asc"}});
 	console.log("render");
 	return (

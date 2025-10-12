@@ -20,6 +20,9 @@ model Todo {
   complete    Boolean  @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  userId      String
+
+  user User @relation(fields: [userId], references: [id])
 }
 
 // NextAuth creando el squema con prisma
@@ -64,6 +67,9 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+
+  //relación con la tabla todo
+  todos Todo[]
 
   @@map("users")
 }

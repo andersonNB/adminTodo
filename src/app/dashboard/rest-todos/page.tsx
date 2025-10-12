@@ -12,7 +12,7 @@ export default async function RestTodos() {
 	const todos = await prisma.todo.findMany({orderBy: {description: "asc"}});
 
 	//normalmente podriamos hacer esto en un client componentes para obtener la data del api
-	//pero aprovechamos los server Compoentnes y prisma para hacer esto, ya que un server componente puede ser asincrono
+	//pero aprovechamos los server Components y prisma para hacer esto, ya que un server componente puede ser asincrono
 	/*useEffect(() => {
 		async function todos() {
 			fetch("/api/todos")
