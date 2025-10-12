@@ -80,7 +80,9 @@ const Sidebar = async () => {
 					<h5 className=" mt-4 text-xl font-semibold text-gray-600  ">
 						{user?.name ?? "Cargando..."}
 					</h5>
-					<span className="text-gray-400 lg:block">Admin</span>
+					<span className="text-gray-400 lg:block">
+						{user?.roles ?? "no role"}
+					</span>
 				</div>
 
 				<div className=" max-h-[40%]  overflow-hidden overflow-y-auto">

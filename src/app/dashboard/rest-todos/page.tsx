@@ -11,6 +11,9 @@ export const metadata = {
 export default async function RestTodos() {
 	const todos = await prisma.todo.findMany({orderBy: {description: "asc"}});
 
+	//TODO: hacer la misma logica de la server-todos pero no con server actions si no con la api como tal.
+	// pista: Helper
+
 	//normalmente podriamos hacer esto en un client componentes para obtener la data del api
 	//pero aprovechamos los server Components y prisma para hacer esto, ya que un server componente puede ser asincrono
 	/*useEffect(() => {

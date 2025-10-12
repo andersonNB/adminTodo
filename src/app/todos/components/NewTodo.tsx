@@ -4,9 +4,12 @@ import {IoReloadOutline, IoTrashOutline} from "react-icons/io5";
 import {useRouter} from "next/navigation";
 import {resetTodos} from "../helpers/seed";
 import {addTodo, deleteCompletedServerActions} from "../actions/todo-actions";
+import {useSession} from "next-auth/react";
 
 export const NewTodo = () => {
 	const router = useRouter();
+	const session = useSession();
+	console.log("session con el hook desde un client componente: ", session);
 
 	const deleteCompleted = async () => {
 		//await deleteAllCompletedTodos();
@@ -29,7 +32,7 @@ export const NewTodo = () => {
 		if (typeof description === "string") {
 			if (description.trim() === "") return;
 
-			await addTodo(description);
+			await addTodo(description, session.data?.user?.id ?? "no id add todo");
 			//router.refresh();
 		}
 	};

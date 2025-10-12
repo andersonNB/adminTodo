@@ -1,5 +1,17 @@
+import {authOptions} from "@/app/api/auth/[...nextauth]/route";
 import prisma from "@/lib/prisma";
 import bcrypt from "bcryptjs";
+import {getServerSession} from "next-auth";
+
+/**
+ *
+ * @returns Obtenemos y retornamos la session del usuario activo, utilizando la acción del server
+ */
+export const getUserSessionServer = async () => {
+	const session = await getServerSession(authOptions);
+
+	return session;
+};
 
 /** * Intenta iniciar sesión con email y contraseña.
  * - Si el usuario no existe, lo crea automáticamente con la contraseña proporcionada.

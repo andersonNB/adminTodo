@@ -31,6 +31,8 @@ const postSchema = yup.object({
 });
 
 export async function POST(request: Request) {
+	//se puede obtener el usuario del hook que creamos
+
 	try {
 		const {complete, description} = await postSchema.validate(
 			await request.json()
