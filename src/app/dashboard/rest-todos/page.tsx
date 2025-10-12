@@ -1,7 +1,8 @@
 import React from "react";
 import prisma from "@/lib/prisma";
 import {TodosGrid} from "@/app/todos";
-import {NewTodo} from "@/app/todos/components/NewTodo";
+import NewTodoClientSide from "@/app/todos/components/NewTodoClientSide";
+import {getUserSessionServer} from "@/app/auth/actions/auth-actions";
 
 export const metadata = {
 	title: "Listado de todos",
@@ -9,10 +10,13 @@ export const metadata = {
 };
 
 export default async function RestTodos() {
-	const todos = await prisma.todo.findMany({orderBy: {description: "asc"}});
+	const session = await getUserSessionServer();
+	const {id} = session?.user ?? {};
 
-	//TODO: hacer la misma logica de la server-todos pero no con server actions si no con la api como tal.
-	// pista: Helper
+	const todos = await prisma.todo.findMany({
+		orderBy: {description: "asc"},
+		where: {userId: id},
+	});
 
 	//normalmente podriamos hacer esto en un client componentes para obtener la data del api
 	//pero aprovechamos los server Components y prisma para hacer esto, ya que un server componente puede ser asincrono
@@ -29,7 +33,8 @@ export default async function RestTodos() {
 	return (
 		<div>
 			<div className="w-full px-3 mx-5 mb-5">
-				<NewTodo />
+				{/** <NewTodo />*/}
+				<NewTodoClientSide />
 			</div>
 			<TodosGrid todos={todos} />
 		</div>

@@ -28,18 +28,18 @@ export async function GET(request: Request) {
 const postSchema = yup.object({
 	description: yup.string().required(),
 	complete: yup.boolean().optional().default(false),
+	userId: yup.string().required(),
 });
 
 export async function POST(request: Request) {
 	//se puede obtener el usuario del hook que creamos
 
 	try {
-		const {complete, description} = await postSchema.validate(
+		const {complete, description, userId} = await postSchema.validate(
 			await request.json()
 		);
-
 		const todo = await prisma.todo.create({
-			data: {complete, description},
+			data: {complete, description, userId},
 		});
 
 		return NextResponse.json(todo);

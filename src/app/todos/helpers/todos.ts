@@ -33,8 +33,11 @@ export const updateTodo = async (
  * @param {string} description - La descripción del nuevo Todo.
  * @returns {Promise<Todo>} - Promesa que resuelve con el Todo recién creado.
  */
-export const createTodo = async (description: string): Promise<Todo> => {
-	const body = {description};
+export const createTodo = async (
+	description: string,
+	userId: string
+): Promise<Todo> => {
+	const body = {description, userId};
 
 	const todo = await fetch(`/api/todos`, {
 		method: "POST",
