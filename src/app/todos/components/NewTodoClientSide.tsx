@@ -10,7 +10,7 @@ const NewTodoClientSide = () => {
 	const session = useSession();
 	const router = useRouter();
 	console.log(
-		"Este componente usa el api que tenemos en el proyecto y pase por el server de nextb"
+		"Este componente usa el api que tenemos en el proyecto y pasa por el server de next"
 	);
 
 	const deleteCompleted = async () => {
