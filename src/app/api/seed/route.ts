@@ -52,7 +52,7 @@ export async function GET(request: Request) {
 		data: {
 			description: "Piedra del poder",
 			complete: true,
-		}		daeq
+		}		
 	});
 	*/
 
