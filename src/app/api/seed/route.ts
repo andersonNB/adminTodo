@@ -51,8 +51,7 @@ export async function GET(request: Request) {
     const todo = await prisma.todo.create({
 		data: {
 			description: "Piedra del poder",
-			complete: true,
-			dadada
+			complete: true,			
 		}		
 	});
 	*/
