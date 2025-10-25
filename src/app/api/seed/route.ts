@@ -55,7 +55,6 @@ export async function GET(request: Request) {
 		}		
 	});
 	*/
-	//sfñalskdfnaksjñdfnaksñfndnñj
 
 	return NextResponse.json({message: "Seed executed", todos});
 }
