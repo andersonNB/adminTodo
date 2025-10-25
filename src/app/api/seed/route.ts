@@ -53,6 +53,8 @@ export async function GET(request: Request) {
 			description: "Piedra del poder",
 			complete: true,			
 		}		
+
+		no comments
 	});
 	*/
 
