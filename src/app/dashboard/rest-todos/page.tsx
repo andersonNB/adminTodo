@@ -33,7 +33,7 @@ export default async function RestTodos() {
 	return (
 		<div>
 			<div className="w-full px-3 mx-5 mb-5">
-				{/** <NewTodo />*/}qwerty
+				{/** <NewTodo />*/}
 				<NewTodoClientSide />
 			</div>
 			<TodosGrid todos={todos} />
