@@ -6,6 +6,7 @@ import {
 	IoCheckboxOutline,
 	IoListOutline,
 	IoPerson,
+	IoLogoReact,
 } from "react-icons/io5";
 import {SidebarItemProps} from "@/app/interfaces/Sidebar";
 import {LiaCookieSolid} from "react-icons/lia";
@@ -44,6 +45,11 @@ const menuItems: SidebarItemProps[] = [
 		icon: <IoPerson />,
 		title: "Profile",
 		path: "/dashboard/profile",
+	},
+	{
+		icon: <IoLogoReact />,
+		title: "Behavior React",
+		path: "/dashboard/react",
 	},
 ];
 
