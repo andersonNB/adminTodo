@@ -11,7 +11,12 @@ const Parent = () => {
 
 	return (
 		<div>
-			<button onClick={() => setCount(count + 1)}>Incrementar</button>
+			<button
+				onClick={() => setCount(count + 1)}
+				className="bg-blue-500 text-white p-2 rounded-md"
+			>
+				Incrementar
+			</button>
 			<Child name="Anderson" />
 		</div>
 	);
