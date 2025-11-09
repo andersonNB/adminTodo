@@ -59,6 +59,7 @@ export const authOptions: NextAuthOptions = {
 			});
 			token.roles = dbUser?.roles ?? ["no-roles"];
 			token.id = dbUser?.id ?? "no-uuid";
+			console.log("token ...nextauth: ", token);
 			return token;
 		},
 
@@ -67,8 +68,6 @@ export const authOptions: NextAuthOptions = {
 				session.user.roles = token.roles;
 				session.user.id = token.id as string;
 			}
-
-			console.log(session);
 			return session;
 		},
 	},

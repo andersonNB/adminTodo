@@ -8,7 +8,7 @@ function Child({name}: {name: string}) {
 
 const Parent = () => {
 	const [count, setCount] = useState(0);
-	//no commentss
+
 	return (
 		<div>
 			<button

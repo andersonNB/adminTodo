@@ -13,7 +13,6 @@ import {LiaCookieSolid} from "react-icons/lia";
 import {FaProductHunt} from "react-icons/fa";
 import {getServerSession} from "next-auth";
 import {authOptions} from "@/app/api/auth/[...nextauth]/route";
-import LogoutButton from "./LogoutButton";
 
 const menuItems: SidebarItemProps[] = [
 	{
@@ -98,10 +97,6 @@ const Sidebar = async () => {
 						))}
 					</ul>
 				</div>
-			</div>
-
-			<div className="px-6 -mx-6 pt-4 flex justify-between items-center border-t">
-				<LogoutButton />
 			</div>
 		</aside>
 	);

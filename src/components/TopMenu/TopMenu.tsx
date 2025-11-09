@@ -1,7 +1,8 @@
 import {cookies} from "next/headers"; // se pueden utilizar en server componentes
 import Link from "next/link";
 import React from "react";
-import {CiChat1, CiMenuBurger, CiSearch, CiShoppingCart} from "react-icons/ci";
+import {CiChat1, CiSearch, CiShoppingCart} from "react-icons/ci";
+import LogoutButton from "../Sidebar/LogoutButton";
 
 const TopMenu = async () => {
 	const cookieStore = await cookies();
@@ -56,6 +57,10 @@ const TopMenu = async () => {
 						</span>
 						<CiShoppingCart size={25} />
 					</Link>
+
+					<div>
+						<LogoutButton />
+					</div>
 				</div>
 			</div>
 		</div>
