@@ -28,6 +28,10 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}
 			>
+				{/* SI se descomenta el AuthProvider en donde se obtenga tendra problemas 
+				ya que next usa este proveedor para obtener dicha session se coloca en lo más alto
+				para alimentar toda la aplicación .....
+				 */}
 				<AuthProvider>{children}</AuthProvider>
 			</body>
 		</html>
