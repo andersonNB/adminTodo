@@ -25,7 +25,6 @@ function Child({
 					: "border-transparent shadow-none scale-100"
 			}`}
 		>
-			qwerty
 			{name}
 		</p>
 	);
