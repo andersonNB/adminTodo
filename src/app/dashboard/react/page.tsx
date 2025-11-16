@@ -25,6 +25,7 @@ function Child({
 					: "border-transparent shadow-none scale-100"
 			}`}
 		>
+			qqewrt
 			{name}
 		</p>
 	);
