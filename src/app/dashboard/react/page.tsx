@@ -1,5 +1,6 @@
 "use client";
 import {useEffect, useState} from "react";
+import {createPortal} from "react-dom";
 
 function Child({
 	name = "Se activa por que aunque no se le pasan props, al estar en el componente padre el render del padre activa el render del hijo",
@@ -25,7 +26,6 @@ function Child({
 					: "border-transparent shadow-none scale-100"
 			}`}
 		>
-			qqewrt
 			{name}
 		</p>
 	);
@@ -35,17 +35,29 @@ const Parent = () => {
 	const [count, setCount] = useState(0);
 
 	return (
-		<div className="flex flex-col gap-4 ">
-			<div>
-				<button
-					onClick={() => setCount(count + 1)}
-					className="bg-blue-500 text-white p-2 rounded-md hover:cursor-pointer"
-				>
-					Incrementar
-				</button>
+		<>
+			<div className="flex flex-col gap-4 ">
+				<div>
+					<button
+						onClick={() => setCount(count + 1)}
+						className="bg-blue-500 text-white p-2 rounded-md hover:cursor-pointer"
+					>
+						Incrementar
+					</button>
+				</div>
+				<Child key={count} />
 			</div>
-			<Child key={count} />
-		</div>
+
+			<div>
+				<p>Elemento 1 adentro del div</p>
+				<p>Elemento 2 adentro del div</p>
+			</div>
+
+			<div>
+				<p>Elemnto 1 adentro del div</p>
+				{createPortal(<p>Este elemento 2 ira en el body</p>, document.body)}
+			</div>
+		</>
 	);
 };
 export default Parent;
