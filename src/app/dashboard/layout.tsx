@@ -27,7 +27,7 @@ export default async function DashboardLayout({
 				{/* TODO: src/components <TopMenu /> */}
 				<TopMenu />
 				{/* TODO: Fin del <TopMenu /> */}
-
+				qwerty
 				{/* TODO: Contenido en el Layout.tsx */}
 				<div className="px-6 pt-6 bg-white p-2 m-2 rounded text-black">
 					{children}
